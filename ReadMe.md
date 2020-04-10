@@ -9,6 +9,8 @@ Intel Core i7-7700HQ CPU 2.80GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical co
 ```
 |      Method |      Mean |    Error |   StdDev |       Gen 0 | Gen 1 | Gen 2 |   Allocated |
 |------------ |----------:|---------:|---------:|------------:|------:|------:|------------:|
-| ContainsImp |  75.00 ms | 1.452 ms | 2.173 ms |           - |     - |     - |           - |
-| ContainsExp |  72.31 ms | 1.090 ms | 1.020 ms |           - |     - |     - |           - |
-| ContainsDef | 226.40 ms | 4.524 ms | 5.386 ms | 152500.0000 |     - |     - | 480707954 B |
+| ContainsImp |  68.38 ms | 1.360 ms | 2.520 ms |           - |     - |     - |           - |
+| ContainsExp |  68.37 ms | 0.926 ms | 0.866 ms |           - |     - |     - |           - |
+| ContainsDef | 222.49 ms | 4.301 ms | 5.120 ms | 152666.6667 |     - |     - | 480706595 B |
+| OperatorImp |  70.83 ms | 1.140 ms | 1.066 ms |           - |     - |     - |           - |
+| OperatorExp | 510.08 ms | 6.545 ms | 7.537 ms | 305000.0000 |     - |     - | 961415908 B |

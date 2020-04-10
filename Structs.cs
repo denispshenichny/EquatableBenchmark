@@ -82,6 +82,7 @@ namespace EquatableBenchmark {
         }
 
         public static bool operator ==(S_Exp left, S_Exp right) {
+            //Generated using VS refactoring
             return left.Equals(right);
         }
 
