@@ -7,16 +7,19 @@ namespace EquatableBenchmark {
         List<S_Imp> listImp;
         List<S_Exp> listExp;
         List<S> list;
+        List<S_NoEquals> listNoEquals;
         [GlobalSetup]
         public void Setup() {
             listImp = new List<S_Imp>(10_000_000);
             listExp = new List<S_Exp>(10_000_000);
             list = new List<S>(10_000_000);
+            listNoEquals = new List<S_NoEquals>(10_000_000);
 
-            for (int i = 0; i < listImp.Capacity; i++) {
+            for(int i = 0; i < listImp.Capacity; i++) {
                 listImp.Add(new S_Imp(i));
                 listExp.Add(new S_Exp(i));
                 list.Add(new S(i));
+                listNoEquals.Add(new S_NoEquals(i));
             }
         }
 
@@ -24,21 +27,28 @@ namespace EquatableBenchmark {
         public void ContainsImp() {
             bool x = listImp.Contains(new S_Imp(listImp.Capacity - 1));
             bool x_ = listImp.Contains(new S_Imp(listImp.Capacity));
-            if (!x || x_)
+            if(!x || x_)
                 throw new Exception();
         }
         [Benchmark]
         public void ContainsExp() {
             bool x = listExp.Contains(new S_Exp(listExp.Capacity - 1));
             bool x_ = listExp.Contains(new S_Exp(listExp.Capacity));
-            if (!x || x_)
+            if(!x || x_)
                 throw new Exception();
         }
         [Benchmark]
         public void ContainsDef() {
             bool x = list.Contains(new S(list.Capacity - 1));
             bool x_ = list.Contains(new S(list.Capacity));
-            if (!x || x_)
+            if(!x || x_)
+                throw new Exception();
+        }
+        [Benchmark]
+        public void ContainsNoEquals() {
+            bool x = listNoEquals.Contains(new S_NoEquals(listNoEquals.Capacity - 1));
+            bool x_ = listNoEquals.Contains(new S_NoEquals(listNoEquals.Capacity));
+            if(!x || x_)
                 throw new Exception();
         }
 
@@ -46,14 +56,14 @@ namespace EquatableBenchmark {
         public void OperatorImp() {
             int idx = listImp.FindIndex(x => x == new S_Imp(listImp.Capacity - 1));
             int idx_ = listImp.FindIndex(x => x == new S_Imp(listImp.Capacity));
-            if (idx < 0 || idx_ >= 0)
+            if(idx < 0 || idx_ >= 0)
                 throw new Exception();
         }
         [Benchmark]
         public void OperatorExp() {
             int idx = listExp.FindIndex(x => x == new S_Exp(listImp.Capacity - 1));
             int idx_ = listExp.FindIndex(x => x == new S_Exp(listImp.Capacity));
-            if (idx < 0 || idx_ >= 0)
+            if(idx < 0 || idx_ >= 0)
                 throw new Exception();
         }
     }

@@ -5,6 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EquatableBenchmark {
+    public struct S_NoEquals {
+        public int Value;
+        public int Value1;
+        public int Value2;
+        public int Value3;
+
+        public S_NoEquals(int value) {
+            Value = value;
+            Value1 = value;
+            Value2 = value;
+            Value3 = value;
+        }
+    }
     public struct S {
         public int Value;
         public int Value1;

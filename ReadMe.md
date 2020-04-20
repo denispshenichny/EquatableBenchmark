@@ -1,16 +1,17 @@
 ``` ini
 
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.752 (1909/November2018Update/19H2)
-Intel Core i7-7700HQ CPU 2.80GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores
-  [Host]     : .NET Framework 4.8 (4.8.4150.0), X86 LegacyJIT
-  DefaultJob : .NET Framework 4.8 (4.8.4150.0), X86 LegacyJIT
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.778 (1909/November2018Update/19H2)
+Intel Core i3-8100 CPU 3.60GHz (Coffee Lake), 1 CPU, 4 logical and 4 physical cores
+  [Host]     : .NET Framework 4.8 (4.8.4121.0), X86 LegacyJIT
+  DefaultJob : .NET Framework 4.8 (4.8.4121.0), X86 LegacyJIT
 
 
 ```
-|      Method |      Mean |    Error |   StdDev |       Gen 0 | Gen 1 | Gen 2 |   Allocated |
-|------------ |----------:|---------:|---------:|------------:|------:|------:|------------:|
-| ContainsImp |  68.38 ms | 1.360 ms | 2.520 ms |           - |     - |     - |           - |
-| ContainsExp |  68.37 ms | 0.926 ms | 0.866 ms |           - |     - |     - |           - |
-| ContainsDef | 222.49 ms | 4.301 ms | 5.120 ms | 152666.6667 |     - |     - | 480706595 B |
-| OperatorImp |  70.83 ms | 1.140 ms | 1.066 ms |           - |     - |     - |           - |
-| OperatorExp | 510.08 ms | 6.545 ms | 7.537 ms | 305000.0000 |     - |     - | 961415908 B |
+|           Method |      Mean |    Error |   StdDev |       Gen 0 | Gen 1 | Gen 2 |   Allocated |
+|----------------- |----------:|---------:|---------:|------------:|------:|------:|------------:|
+|      ContainsImp |  62.74 ms | 0.210 ms | 0.196 ms |           - |     - |     - |           - |
+|      ContainsExp |  62.98 ms | 0.142 ms | 0.133 ms |           - |     - |     - |           - |
+|      ContainsDef | 186.89 ms | 1.227 ms | 1.148 ms | 152666.6667 |     - |     - | 480706595 B |
+| ContainsNoEquals | 783.61 ms | 3.452 ms | 3.229 ms | 305000.0000 |     - |     - | 961415908 B |
+|      OperatorImp |  64.38 ms | 0.226 ms | 0.200 ms |           - |     - |     - |           - |
+|      OperatorExp | 451.59 ms | 2.224 ms | 2.081 ms | 305000.0000 |     - |     - | 961415908 B |
